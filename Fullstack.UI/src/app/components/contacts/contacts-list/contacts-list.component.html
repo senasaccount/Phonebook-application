@@ -1,0 +1,21 @@
+<div class="container my-5">
+    <h1 class="mb-3">Contacts</h1>
+
+    <table class="table" *ngIf="contacts && contacts.length > 0">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phonenumber</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let contact of contacts">
+                <td> {{contact.name}} </td>
+                <td> {{contact.phoneNumber}} </td>
+                <td><a [routerLink] ="['/contacts', 'edit', contact.id]">View</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!contacts || contacts.length <= 0">No contact found</p>
+</div>
